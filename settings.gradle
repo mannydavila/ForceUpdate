@@ -1,0 +1,5 @@
+rootProject.name = "ForceUpdate"
+include ':app'
+include ':presentation'
+include ':data'
+include ':domain'

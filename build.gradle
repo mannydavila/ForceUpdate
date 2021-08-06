@@ -1,0 +1,61 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+
+    ext {
+        build_gradle_version = "4.2.2"
+        buildToolsVersion = "30.0.3"
+        compileSdkVersion = 30
+        targetSdkVersion = 30
+        minSdkVersion = 16
+        versionCode = 1
+        versionName = "1.0.0"
+        kotlin_version = "1.5.21"
+        retrofit_version = "2.9.0"
+        okhttp_logging_version = "4.9.1"
+        hilt_version ="2.37"
+        moshi_version = "1.12.0"
+        lottie_version = "3.7.2"
+        activity_ktx_version = "1.3.0"
+
+        retrofitDependencies = [
+                retrofit: "com.squareup.retrofit2:retrofit:$retrofit_version",
+                moshiConverter: "com.squareup.retrofit2:converter-moshi:$retrofit_version",
+                okhttpLogging: "com.squareup.okhttp3:logging-interceptor:$okhttp_logging_version"
+        ]
+
+        dependencyInjectionDependencies = [
+                hiltAndroid: "com.google.dagger:hilt-android:$hilt_version",
+                hiltCompiler: "com.google.dagger:hilt-android-compiler:$hilt_version"
+        ]
+
+        moshiDependencies = [
+                moshi: "com.squareup.moshi:moshi:$moshi_version",
+                kotlinCodegen: "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+        ]
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$build_gradle_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
